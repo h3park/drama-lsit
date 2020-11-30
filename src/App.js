@@ -13,16 +13,20 @@ class App extends Component{
   }
 
   componentDidMount(){
-    fetch('https://jsonplaceholder.typicode.com/users')
+    // const API_NAME = 'http://api.themoviedb.org/3/search/tv?query=criminal&Minds&api_key=c0cfde6eeaf28982f2de2403db46d141'
+    // fetch('https://jsonplaceholder.typicode.com/users')
+    fetch(`http://api.themoviedb.org/3/search/tv?query=criminal&Minds&api_key=c0cfde6eeaf28982f2de2403db46d141`)
     .then(response => response.json())
-    .then(users => this.setState({dramas: users}))
+    // .then(d => console.log(d.results))
+    .then(dramas_info => this.setState({dramas: dramas_info.results}))
   }
 
   render(){
     return(
       <div className="App">
       <header className="App-header">
-        {this.state.dramas.map(dramas => <h1>{dramas.name}</h1>)}
+        {console.log(this.state.dramas)}
+        {this.state.dramas.map(drama => <h1>{drama.name}</h1>)}
       </header>
     </div>
     );
