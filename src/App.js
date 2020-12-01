@@ -15,7 +15,7 @@ class App extends Component{
   }
 
   componentDidMount(){
-    fetch(`http://api.themoviedb.org/3/search/tv?query=criminal&Minds&api_key=c0cfde6eeaf28982f2de2403db46d141`)
+    fetch('http://api.themoviedb.org/3/search/tv?query=criminal&Minds&api_key=c0cfde6eeaf28982f2de2403db46d141')
     .then(response => response.json())
     .then(dramas_info => this.setState({dramas: dramas_info.results}))
   }
